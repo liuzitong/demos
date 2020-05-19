@@ -1,0 +1,54 @@
+
+    项目目录可按模块划分为，模块之间（除开主模块）之间应该互不相知。
+模块有一个主要依赖模块，名为 base。主模块负责组合必要的模块。
+如下代表一个项目( hello )：
+    
+    [ hello ]
+    + [ base ]
+    + [ module-a ]
+    + [ module-b ]
+    + [ main ]
+    + [ third-part ]
+
+    base 目录为整个项目最基础的模块，负责提供全局定义，以及应用程序
+的内存计数管理，对象管理，配置管理。
+    [ base ]
+    + [ common ] 
+      + [ hello_def.h   ]              // 基本定义
+      + [ hello_memcntr.hxx/.cxx ]     // 内存计数管理
+      + [ hello_pimplprivtemp.hpp]     // 用于书写 PImpl 的的模板
+    + [ service]
+      + [ hello_appsettingssvc.hxx/.cxx ]  // 应用程序配置管理服务
+      + [ hello_msgbussvc.hxx/.cxx ]   // 应用程序全局消息总线服务
+      + [ hello_objmgrsvc.hxx/.cxx ]   // 应用程序全局对象管理服务
+    + [ model ]
+  
+    main 目录为整个项目的入口模块，负责选择组合项目中的模块形成目标应用。
+    [ main ]
+    + [ appctrl ]   
+      + [ hello_appctrl.hxx/.cxx ]   // 应用程序控制器，管理组合
+      + [ hello_entry.cpp ]    //  应用程序入口
+    + [ mkspecs ]            
+      + [ hello.pro ] // QT5 项目组织文件
+    + [ resource ]
+      + [ main ]
+    + [ service  ]
+    + [ view ]
+    + [ viewmodel ]
+
+    基本模块的目录树如下：
+    [ module-a ]
+    + [ model ]
+    + [ view  ]
+    + [ viewmodel ]
+    + [ service ]
+    + [ resource ]
+      + [ model-a ]
+    
+    对于放在外部的资源，设定每个模块以 resouce / { 模块名 } 作为资源目录树。
+
+
+
+
+    
+    

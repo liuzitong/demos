@@ -1,0 +1,11 @@
+【 sys 模块的线程 】
+
+相关：qxpack_ic_sysevtqthread_priv
+描述：
+    该对象内部创建了一个单例 QThread对象，并持拥有一个引用计数器，
+多个qxpack_ic_sysevtqthread_priv 共享同一个单例 QThread。
+    这个线程用于开辟一个新的事件线程，用于indcom 内部。
+
+
+
+

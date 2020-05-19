@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BF16EE4B-8DA9-306D-AB4F-344BA6A60576}</ProjectGuid>
+    <RootNamespace>qmluserlistmodeldemo</RootNamespace>
+    <Keyword>QtVS_v302</Keyword>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>qmluserlistmodeldemo</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>qmluserlistmodeldemo</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <QtInstall>msvc2015</QtInstall>
+    <QtModules>core;network;gui;qml;quick</QtModules>
+    <QtQMLDebugEnable>true</QtQMLDebugEnable>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <QtInstall>msvc2015</QtInstall>
+    <QtModules>core;network;gui;qml;quick</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qmluserlistmodeldemo</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Z:/$(SolutionName)/$(ProjectName)_$(Platform)_$(Configuration)</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Z:/$(SolutionName)/$(ProjectName)_$(Platform)_$(Configuration)/Interm</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">qmluserlistmodeldemo</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;..\..\..\..\demos;..\..\third-part;$(QTDIR)\include;release;$(QTDIR)\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;QT_DEPRECATED_WARNINGS;QT_MESSAGELOGCONTEXT;QMLUSERLISTMODELDEMO_CFG_STATIC;QMLUSERLISTMODELDEMO_USE_QT5_INFO;QMLUSERLISTMODELDEMO_QT5_ENABLED;QXPACK_IC_CFG_STATIC;QXPACK_IC_QT5_ENABLED;QXPACK_IC_PLATFORM_WIN32;QXPACK_IC_QT5_ENABLE;QXPACK_IC_DETECTED_QML;QT_NO_DEBUG;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\opensslx86\lib;C:\Utils\my_sql\my_sqlx86\lib;C:\Utils\postgresqlx86\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\qmluserlistmodeldemo.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;QT_DEPRECATED_WARNINGS;QT_MESSAGELOGCONTEXT;QMLUSERLISTMODELDEMO_CFG_STATIC;QMLUSERLISTMODELDEMO_USE_QT5_INFO;QMLUSERLISTMODELDEMO_QT5_ENABLED;QXPACK_IC_CFG_STATIC;QXPACK_IC_QT5_ENABLED;QXPACK_IC_PLATFORM_WIN32;QXPACK_IC_QT5_ENABLE;QXPACK_IC_DETECTED_QML;QT_NO_DEBUG;QT_QUICK_LIB;QT_GUI_LIB;QT_QML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <Compression>default</Compression>
+      <QtRccDir>$(Configuration)</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;..\..\..\..\demos;..\..\third-part;$(QTDIR)\include;debug;$(QTDIR)\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;QT_DEPRECATED_WARNINGS;QT_MESSAGELOGCONTEXT;QMLUSERLISTMODELDEMO_CFG_STATIC;QMLUSERLISTMODELDEMO_USE_QT5_INFO;QMLUSERLISTMODELDEMO_QT5_ENABLED;QXPACK_IC_CFG_STATIC;QXPACK_IC_QT5_ENABLED;QXPACK_IC_PLATFORM_WIN32;QXPACK_IC_QT5_ENABLE;QXPACK_IC_DETECTED_QML;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\opensslx86\lib;C:\Utils\my_sql\my_sqlx86\lib;C:\Utils\postgresqlx86\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\qmluserlistmodeldemo.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;QT_DEPRECATED_WARNINGS;QT_MESSAGELOGCONTEXT;QMLUSERLISTMODELDEMO_CFG_STATIC;QMLUSERLISTMODELDEMO_USE_QT5_INFO;QMLUSERLISTMODELDEMO_QT5_ENABLED;QXPACK_IC_CFG_STATIC;QXPACK_IC_QT5_ENABLED;QXPACK_IC_PLATFORM_WIN32;QXPACK_IC_QT5_ENABLE;QXPACK_IC_DETECTED_QML;QT_QUICK_LIB;QT_GUI_LIB;QT_QML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <Compression>default</Compression>
+      <QtRccDir>$(Configuration)</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\appctrl\qmluserlistmodeldemo_appctrl.cxx" />
+    <ClCompile Include="..\..\base\service\qmluserlistmodeldemo_appsettingssvc.cxx" />
+    <ClCompile Include="..\..\base\service\qmluserlistmodeldemo_cfmbussvc.cxx" />
+    <ClCompile Include="..\appctrl\qmluserlistmodeldemo_entry.cpp" />
+    <ClCompile Include="..\..\base\common\qmluserlistmodeldemo_logging.cxx" />
+    <ClCompile Include="..\qmluserlistmodeldemo_main.cxx" />
+    <ClCompile Include="..\..\base\common\qmluserlistmodeldemo_memcntr.cxx" />
+    <ClCompile Include="..\..\base\service\qmluserlistmodeldemo_msgbussvc.cxx" />
+    <ClCompile Include="..\..\base\service\qmluserlistmodeldemo_objmgrsvc.cxx" />
+    <ClCompile Include="..\..\people\qmluserlistmodeldemo_people.cxx" />
+    <ClCompile Include="..\..\people\model\qmluserlistmodeldemo_pp_peoplelistmodel.cxx" />
+    <ClCompile Include="..\..\people\service\qmluserlistmodeldemo_pp_peoplemgrsvc.cxx" />
+    <ClCompile Include="..\..\people\model\qmluserlistmodeldemo_pp_personinfo.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_appctrlbase.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_appsettingsbase.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_base64.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_bytearray.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rshde_impl_bundle.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rshdebase.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rssvr_impl_bundle.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rssvrbase.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_eventloopbarrier.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_global.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_imagedata.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_ipcsem_win32.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_jsonrpc2.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_buff.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_logging.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_memcntr.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_minizip.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_modmgrbase.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_ncstring.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_objectcache.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_qsgimtexture.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_qsgqtlogorender.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_qsgrenderworker.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_qsgtextureprov.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_quickfborenderbase.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\ui_qml_control\qxpack_ic_quickimageitem.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\ui_qml_control\qxpack_ic_quickqtlogoitem.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_semaphore.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_sharedthreadpool_priv.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_stdioipc.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_svcbase.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_sysevtqthread_priv.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_timer.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_ui_qml_api.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_vardata.cxx" />
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_viewmodelbase.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\appctrl\qmluserlistmodeldemo_appctrl.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\base\service\qmluserlistmodeldemo_appsettingssvc.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\base\service\qmluserlistmodeldemo_cfmbussvc.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\base\common\qmluserlistmodeldemo_def.h" />
+    <ClInclude Include="..\..\base\common\qmluserlistmodeldemo_logging.hxx" />
+    <QtMoc Include="..\qmluserlistmodeldemo_main.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\base\common\qmluserlistmodeldemo_memcntr.hxx" />
+    <QtMoc Include="..\..\base\service\qmluserlistmodeldemo_msgbussvc.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\base\service\qmluserlistmodeldemo_objmgrsvc.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\people\qmluserlistmodeldemo_people.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\base\common\qmluserlistmodeldemo_pimplprivtemp.hpp" />
+    <QtMoc Include="..\..\people\model\qmluserlistmodeldemo_pp_peoplelistmodel.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\people\service\qmluserlistmodeldemo_pp_peoplemgrsvc.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\people\viewmodel\qmluserlistmodeldemo_pp_peoplemgrvm.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\people\model\qmluserlistmodeldemo_pp_personinfo.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_appctrlbase.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_appdcl_priv.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_appsettingsbase.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_base64.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_bytearray.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_confirmbus.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_buff.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_cli.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rshde_impl_bundle.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rshdebase.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rssvr_impl_bundle.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rssvrbase.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_svr.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_def.h" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_dequetemp.hpp" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_eventloopbarrier.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_filemon.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_global.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_heapvectortemp.hpp" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_imagedata.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_ipcsem.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_jotaskworker.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_jsonrpc2.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_buff.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_cli.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_resphde.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_svr.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_logging.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_memcntr.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_minizip.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_modmgrbase.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_msgbus.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_ncstring.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_numstatqueuetemp.hpp" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_objectcache.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_objmgr.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_pimplprivtemp.hpp" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_qsgimtexture.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_qsgqtlogorender.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_qsgrenderworker.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_qsgtextureprov.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_queuetemp.hpp" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_quickfborenderbase.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_quickimagedata.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\ui_qml_control\qxpack_ic_quickimageitem.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\ui_qml_control\qxpack_ic_quickqtlogoitem.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjcreator_priv.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjdeletor_priv.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjsigblocker_priv.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_semaphore.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_semtemp.hpp" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_simplefsm.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_stacktemp.hpp" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_stdioipc.hxx">
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_svcbase.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_timer.hxx" />
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_tripleobjtemp.hpp" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_ui_qml_api.hxx">
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_vardata.hxx" />
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_viewmodelbase.hxx">
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <QtMoc Include="..\..\people\viewmodel\qmluserlistmodeldemo_pp_peoplemgrvm.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_confirmbus.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_buff.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_cli.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_svr.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_filemon.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_jotaskworker.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_cli.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_resphde.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_svr.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_msgbus.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_objmgr.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_quickimagedata.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjcreator_priv.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjdeletor_priv.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjsigblocker_priv.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_simplefsm.cxx">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>%(Filename).moc</QtMocFileName>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\view\main.qml" />
+    <None Include="..\..\third-part\qxpack\indcom\ui_qml_control\modalpopupdialog.qml" />
+    <None Include="..\..\third-part\qxpack\indcom\ui_qml_control\pagebase.qml" />
+    <None Include="..\view\personitem.qml" />
+    <None Include="..\view\qmldir" />
+    <None Include="..\..\third-part\qxpack\indcom\ui_qml_base\qmldir_rls" />
+    <None Include="..\..\third-part\qxpack\indcom\ui_qml_control\qmldir_rls" />
+    <QtRcc Include="..\view\qmluserlistmodeldemo_main_view.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qmluserlistmodeldemo_main_view</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">qmluserlistmodeldemo_main_view</InitFuncName>
+    </QtRcc>
+    <QtRcc Include="..\..\third-part\qxpack\indcom\ui_qml_base\qxpack_ic_ui_qml_base.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qxpack_ic_ui_qml_base</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">qxpack_ic_ui_qml_base</InitFuncName>
+    </QtRcc>
+    <QtRcc Include="..\..\third-part\qxpack\indcom\ui_qml_control\qxpack_ic_ui_qml_control.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qxpack_ic_ui_qml_control</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">qxpack_ic_ui_qml_control</InitFuncName>
+    </QtRcc>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

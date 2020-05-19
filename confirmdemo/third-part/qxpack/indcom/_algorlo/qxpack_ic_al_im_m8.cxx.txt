@@ -1,0 +1,257 @@
+/* ///////////////////////////////////////////////////////////////////// */
+/*! 
+  @file    gxim_px8_api.c
+  @author  night wing
+  @date    2016/05
+  @brief   The file implement gximage pixel 8bit base API 
+  @par     History
+  @verbatim
+	 <author>   <time>    <version>  <desc>                                   
+         nightwing   2016/05   0.1.0     build this module             
+  @endverbatim
+*/
+/* ///////////////////////////////////////////////////////////////////// */
+#ifndef  __GXIM_PX8_API_C
+#define  __GXIM_PX8_API_C
+
+/*!
+  @addtogroup  GxUtil
+  @{
+*/
+
+/*!
+  @addtogroup  base   
+  @{
+*/
+
+/*!
+  @addtogroup  base_Exported_Functions  
+  @{
+*/
+
+
+/* /////////////////////////////////////////////////////////////////////
+   config
+   ///////////////////////////////////////////////////////////////////// 
+*/
+#include "gxutildef.h"
+#include "gxdiaglocal.h"
+
+#define GXIM_API  GXUTIL_API
+
+/* /////////////////////////////////////////////////////////////////////
+   definition & include
+   ///////////////////////////////////////////////////////////////////// 
+*/
+#include <stdint.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+/* /////////////////////////////////////////////////////////////////////
+    local
+   ///////////////////////////////////////////////////////////////////// 
+*/
+
+
+
+/* /////////////////////////////////////////////////////////////////////
+    exports
+   ///////////////////////////////////////////////////////////////////// 
+*/
+/* ==================================================================================================== */
+/*!
+   @brief  moving average blur the 8bit channel horizontally 
+   @param  sp          [ in ]  the source image
+   @param  sx_pitch    [ in ]  the source image row length
+   @param  dp          [ out]  the dest. image   
+   @parma  dx_pitch    [ in ]  the dest. image row length
+   @param  x_num       [ in ]  the horizontal number
+   @param  y_num       [ in ]  the vertical number  
+   @param  radius      [ in ]  the radius length ( n.xx )
+   @note   the sp and dp allow point to same address ( e.g. this function is IN-PLACE algor. )
+   @return 0 for OK; 0x8C for bad parameters; 
+*/
+/* ==================================================================================================== */
+GXIM_API intptr_t  gxim_px8_avghori ( void *sp, intptr_t sx_pitch, void *dp, intptr_t dx_pitch, intptr_t x_num, intptr_t y_num, double radius )
+{
+	uint8_t    *src, *dst; intptr_t  loop, rad, first, last;
+	uint32_t   s, div_n, mant_n; 
+	uint8_t    tmp; uint8_t  next[256], qtbl[256];  /* index map */
+        intptr_t   ret;	
+
+	ret = GXUTIL_S_OK;
+	/* prepare check */
+	if ( radius > 125 ) { radius = 125; } if ( radius < 0 ) { radius = 0; }
+	if ( y_num < 0 ) { y_num = -y_num; }
+	if ( x_num <= 0 || y_num <= 0 ) { ret = GXUTIL_E_BAD_PARAM; goto L_Exit; }
+
+	/* prepare radius */
+	rad    = ( int32_t )( radius ) + 1;  div_n = ( uint32_t )( 1024.0f / ( radius + radius + 1.0f ) ); 
+	mant_n = ( uint32_t )(( radius - ( int )( radius )) * 1024 );
+
+	/* inital lookback index */
+	for ( loop = 0; loop < ( rad + rad + 1 ); loop ++ ) { next[loop] = ( uint8_t )( loop + 1 ); } 
+    /* old is: next[ loop - 1 ] = 0; */
+    next[ rad + rad ] = 0;
+
+	/* check if rad > x_num - 1 */ 
+	if ( rad > x_num - 1 ) { goto L_S; }
+
+	/* main loop ( x_num >= radius + 1 ) */
+	while ( y_num -- > 0 ) {
+		src = ( uint8_t*)( sp );  dst = ( uint8_t *)( dp ); first = 0; last = rad + rad;
+		qtbl[ rad ] = *src ++; for ( loop = 1; loop <= rad; loop ++ ) { qtbl[ loop-1 ] = qtbl[ rad ]; qtbl[ rad+loop ] = *src ++; }
+		for ( s = 0, loop = first + 1; loop < last; loop ++ ) { s += qtbl[ loop ]; }
+		
+		loop = ( x_num - rad - 1 ); while ( loop -- > 0 ) {
+			*dst ++ = ( uint8_t )((((((( intptr_t )( qtbl[first] ) + ( intptr_t )( qtbl[last] )) * mant_n ) >> 5 ) + ( s << 5 )) * div_n ) >> 15 ); first = next[first]; s = s - qtbl[first] + qtbl[last]; last = next[last]; qtbl[last] = *src ++;  
+    		}
+		/* last radius part */
+		tmp  = qtbl[ last ]; loop = ( rad + 1 ); while ( loop -- > 0 ) {
+			*dst ++ = ( uint8_t )((((((( intptr_t )( qtbl[first] ) + ( intptr_t )( qtbl[last] )) * mant_n ) >> 5 ) + ( s << 5 )) * div_n ) >> 15 ); first = next[first]; s = s - qtbl[first] + qtbl[last]; last = next[last]; qtbl[last] = tmp;
+		}
+		/* next row */
+		sp = ( uint8_t *)( sp ) + sx_pitch;  dp = ( uint8_t *)( dp ) + dx_pitch;	
+	}
+	goto L_Exit;
+
+L_S:    /* radius + 1 > x_num */
+	while ( y_num -- > 0 ) {
+		/* reset */
+		src = ( uint8_t *)( sp );  dst = ( uint8_t *)( dp ); first = 0; last = rad + rad; 
+		qtbl[ rad ] = *src ++; for ( loop = 0; loop < rad; loop ++ ) { qtbl[ loop ] = qtbl[ rad ]; }
+		for ( loop = 1; loop < x_num; loop ++ ) { qtbl[ rad+loop ] = *src ++; }
+		for ( tmp = qtbl[ rad + x_num - 1 ], loop = x_num; loop < rad; loop ++ ) { qtbl[ rad+loop ] = tmp; }
+		for ( s = 0, loop = first + 1; loop < last; loop ++ ) { s += qtbl[loop]; }
+		/* do calc. */
+		tmp  = qtbl[ last ]; loop = x_num; while ( loop -- > 0 ) {
+			*dst ++ = ( uint8_t )((((((( intptr_t )( qtbl[first] ) + ( intptr_t )( qtbl[last] )) * mant_n ) >> 5 ) + ( s << 5 )) * div_n ) >> 15 ); first = next[first]; s = s - qtbl[first] + qtbl[last]; last = next[last]; qtbl[last] = tmp;
+		}
+		/* next row */
+		sp = ( uint8_t *)( sp ) + sx_pitch;  dp = ( uint8_t *)( dp ) + dx_pitch;
+	}
+L_Exit:
+	return ret;
+}
+
+/* ==================================================================================================== */
+/*!
+   @brief  moving average blur the 8bit channel horizontally 
+   @param  sp          [ in ]  the source image
+   @param  sx_pitch    [ in ]  the source image row length
+   @param  dp          [ out]  the dest. image   
+   @parma  dx_pitch    [ in ]  the dest. image row length
+   @param  x_num       [ in ]  the horizontal number
+   @param  y_num       [ in ]  the vertical number  
+   @param  radius      [ in ]  the radius length ( n.xx )
+   @note   the sp and dp allow point to same address ( e.g. this function is IN-PLACE algor. )
+   @return 0 for OK; 0x8C for bad parameters; 
+*/
+/* ==================================================================================================== */
+GXIM_API intptr_t  gxim_px8_avgvert ( void *sp, intptr_t sx_pitch, void *dp, intptr_t dx_pitch, intptr_t x_num, intptr_t y_num, double radius )
+{
+	uint8_t *src, *dst; intptr_t  loop, rad, first, last;
+	uint32_t   s, div_n, mant_n;  
+	uint8_t   tmp, next[256], qtbl[256];
+        intptr_t  ret;	
+
+	ret = GXUTIL_S_OK;
+	/* prepare check */
+	if ( radius > 125 ) { radius = 125; } if ( radius < 0 ) { radius = 0; }
+	if ( y_num < 0 ) { y_num = -y_num; }
+	if ( x_num <= 0 || y_num <= 0 ) { ret = GXUTIL_E_BAD_PARAM; goto L_Exit; }
+
+	/* prepare radius */
+	rad = ( int32_t )( radius ) + 1;  div_n = ( uint32_t )( 1024.0f / ( radius + radius + 1.0f ) ); 
+	mant_n = ( uint32_t )(( radius - ( int )( radius )) * 1024 );
+
+	/* inital lookback index */
+	for ( loop = 0; loop < ( rad + rad + 1 ); loop ++ ) { next[loop] = ( uint8_t )( loop + 1 ); } 
+    /* old is next[loop-1] = 0;  */
+    next[ rad + rad ] = 0;
+
+	/* check if rad > x_num - 1 */ 
+	if ( rad > y_num - 1 ) { goto L_S; }
+
+	/* main loop ( x_num >= radius + 1 ) */
+	while ( x_num -- > 0 ) {
+		/* fill the buffer queue */
+		src = ( uint8_t*)( sp );  dst = ( uint8_t *)( dp ); first = 0; last = rad + rad;
+		qtbl[ rad ] = *src; src += sx_pitch; for ( loop = 1; loop <= rad; loop ++ ) { qtbl[ loop-1 ] = qtbl[ rad ]; qtbl[ rad+loop ] = *src; src += sx_pitch; }
+		for ( s = 0, loop = first + 1; loop < last; loop ++ ) { s += qtbl[ loop ]; }
+		/* do calc. */
+		loop = ( y_num - rad - 1 ); while ( loop -- > 0 ) {
+			*dst = ( uint8_t )((((((( intptr_t )( qtbl[first] ) + ( intptr_t )( qtbl[last] )) * mant_n ) >> 5 ) + ( s << 5 )) * div_n ) >> 15 ); dst += dx_pitch; first = next[first]; s = s - qtbl[first] + qtbl[last]; last = next[last]; qtbl[last] = *src; src += sx_pitch; 
+    		}
+		/* last radius part */
+		tmp  = qtbl[ last ]; loop = ( rad + 1 ); while ( loop -- > 0 ) {
+			*dst = ( uint8_t )((((((( intptr_t )( qtbl[first] ) + ( intptr_t )( qtbl[last] )) * mant_n ) >> 5 ) + ( s << 5 )) * div_n ) >> 15 ); dst += dx_pitch; first = next[first]; s = s - qtbl[first] + qtbl[last]; last = next[last]; qtbl[last] = tmp;
+		}
+		/* next row */
+		sp = ( uint8_t *)( sp ) + 1;  dp = ( uint8_t *)( dp ) + 1;	
+	}
+	goto L_Exit;
+
+L_S:    /* radius + 1 > x_num */
+	while ( x_num -- > 0 ) {
+		/* fill the buffer queue */
+		src = ( uint8_t *)( sp );  dst = ( uint8_t *)( dp ); first = 0; last = rad + rad; 
+		qtbl[ rad ] = *src; src += sx_pitch; for ( loop = 0; loop < rad; loop ++ ) { qtbl[ loop ] = qtbl[ rad ]; }
+		for ( loop = 1; loop < y_num; loop ++ ) { qtbl[ rad+loop ] = *src; src += sx_pitch; }
+		for ( tmp = qtbl[ rad + y_num - 1 ], loop = y_num; loop < rad; loop ++ ) { qtbl[ rad+loop ] = tmp; }
+		for ( s = 0, loop = first + 1; loop < last; loop ++ ) { s += qtbl[loop]; }
+		/* do calc. */
+		tmp  = qtbl[ last ]; loop = y_num; while ( loop -- > 0 ) {
+			*dst = ( uint8_t )((((((( intptr_t )( qtbl[first] ) + ( intptr_t )( qtbl[last] )) * mant_n ) >> 5 ) + ( s << 5 )) * div_n ) >> 15 ); dst += dx_pitch; first = next[first]; s = s - qtbl[first] + qtbl[last]; last = next[last]; qtbl[last] = tmp;
+		}
+		sp = ( uint8_t *)( sp ) + 1;  dp = ( uint8_t *)( dp ) + 1;
+	}
+L_Exit:
+	return ret;
+}
+
+
+
+/* ==================================================================================================== */
+/*!
+   @brief  wavelet db4 lift horizontal transform
+   @param  sp          [ in ]  the source image
+   @param  sx_pitch    [ in ]  the source image row length
+   @param  dp          [ out]  the dest. image   
+   @parma  dx_pitch    [ in ]  the dest. image row length
+   @param  x_num       [ in ]  the horizontal number
+   @param  y_num       [ in ]  the vertical number  
+   @note   the sp and dp allow point to same address ( e.g. this function is IN-PLACE algor. )
+   @return 0 for OK; 0x8C for bad parameters; 
+*/
+/* ==================================================================================================== */
+GXIM_API intptr_t   gxim_px8_wavelet_db4_hori( void *sp, intptr_t sx_pitch, void *dp, intptr_t dx_pitch, 
+                                                intptr_t x_num, intptr_t y_num )
+{
+    intptr_t ret = 0;    
+
+    return ret;
+}
+
+
+
+
+
+
+
+
+/*!
+  @}
+*/
+
+/*!
+  @}
+*/
+
+/*!
+  @}
+*/
+
+#endif
+

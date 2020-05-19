@@ -1,0 +1,3 @@
+module qxpack.indcom.ui.base
+
+ModalPopupDialog   1.0 modalpopupdialog.qml

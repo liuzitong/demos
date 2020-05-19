@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/qmlbase/main/view">
+        <file alias="main.qml">main.qml</file>
+        <file alias="qmldir">qmldir</file>
+    </qresource>
+</RCC>

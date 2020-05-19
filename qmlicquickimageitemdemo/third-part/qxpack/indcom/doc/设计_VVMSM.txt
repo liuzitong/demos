@@ -1,0 +1,67 @@
+【 View 】
+一、职责描述
+  a) 管理
+     ViewModel: 一个或多个视图模型( ViewModel )
+
+  b) 交互
+     输入: 用户输入必要的信息数据 
+     呈现: 显示场景中必要的信息
+
+  c) 导航
+     页面: 至其他 View 
+
+二、数据访问
+
+  a) 本机界面
+    方法/数据变更：
+    [ View ] -> [ ViewModel ] -> [ Service ] -> [ Data Model ]
+
+    数据读取：
+    第一步：[ Data Model ] -( change signal )-> [ View ]
+    第二步：[ View ] <-( property / method )- [ Data Model ]
+
+  b) 网络界面
+    方法/数据变更：
+    [ Client ] -> [ View Agent ] -> [ ViewModel ] -> [ Service ] -> [ Data Model ]
+ 
+    数据读取：
+    第一步: [ Data Model ] -( change signal )-> [ View Agent ]
+    第二步: [ View Agent ] <-( property / method )- [ Data Model ]
+        第二步，种类一: [ View Agent ] -( push data )-> [ Client ]
+        第二步，种类二: [ Client ] <-( timed pull )- [ View Agent ]  
+       
+    * [ View Agent ] 缓存了数据变更描述队列，在推送或拉取时发给 Client
+
+
+【 ViewModel 】
+
+一、职责描述
+  a) 管理
+     Service: 一个或多个 Service
+   
+  b) 业务
+     提供业务逻辑 ( 内部使用 一个或多个 Service 产现该业务 )
+
+  c) Data Model
+     提供 View 可呈现的 Data Model
+
+
+【 Service 】
+
+一、职责描述
+  a) 管理
+     Data Model: 一个或多个 Data Model 对象
+
+  b) 方法
+     服务: 抽象一种基于管理的 Data Model 的方法集合(
+     修改: 修改 Data Model 的数据
+
+二、数据访问
+
+  a) Data Model
+     提供管理的 Data Model 的对象指针  
+      
+
+
+
+

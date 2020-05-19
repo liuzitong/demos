@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/qmlpagelayoutdemo/main/view">
+        <file alias="main.qml">main.qml</file>
+        <file alias="demo_stackview.qml">demo_stackview.qml</file>
+        <file alias="demo_stackview_tab.qml">demo_stackview_tab.qml</file>
+        <file alias="demo_stacklayout.qml">demo_stacklayout.qml</file>
+        <file alias="demo_swipeview.qml">demo_swipeview.qml</file>
+        <file alias="page0.qml">page0.qml</file>
+        <file alias="page1.qml">page1.qml</file>
+        <file alias="hinttext.qml">hinttext.qml</file>
+        <file alias="qmldir">qmldir</file>
+    </qresource>
+</RCC>

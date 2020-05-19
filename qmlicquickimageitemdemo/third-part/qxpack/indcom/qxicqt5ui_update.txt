@@ -1,0 +1,52 @@
+=========== 2019/06/05 =============
+
+Rev.: 0.3.4
+
+1. ui_qml_control
+   * icquickimageitem
+     添加fillModeStr 拉伸与保持比例
+
+=========== 2019/05/12 =============
+
+Rev.: 0.3.3
+
+1. ui_qml_control
+   + pagebase.qml
+   * modalpopupdiaglog.qml
+   * qmldir 中的命名
+     ModalPopupDialog ==> IcModalPopupDialog
+     PageBase ==> IcPageBase
+
+=========== 2019/05/07 =============
+
+Rev.: 0.3.1.0
+
+1. ui_qml_base
+   - qxpack_ic_quickimagesource
+   + qxpack_ic_quickimagedata
+   * qxpack_ic_qml_api 
+ 
+2. ui_qml_control
+   * qxpack_ic_quickimageitem
+
+
+
+=========== 2019/01/08 =============
+
+Rev.: 0.2.0.0
+
+[1] 分解 ui 内容为
+    ui-qml-common  
+    ui-qml-control
+
+=========== 2018/11/16 =============
+
+Rev.: 0.1.1.0
+
+[1] add base, qsgimtexture, quickimageitem, sharedisource
+    
+=========== 2018/10/08 =============
+
+Rev.: 0.1.0.0
+
+[1]  建立

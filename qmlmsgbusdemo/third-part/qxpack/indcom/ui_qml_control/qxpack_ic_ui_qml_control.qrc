@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qxpack/indcom/ui_qml_control">
+        <file alias="qmldir">qmldir_rls</file>
+        <file alias="modalpopupdialog.qml">modalpopupdialog.qml</file>
+        <file alias="pagebase.qml">pagebase.qml</file>
+    </qresource>
+</RCC>

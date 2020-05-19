@@ -1,0 +1,11 @@
+
+    在设计一个类似于 QTcpSocket 的组件API 时，通常会有如 connectToHost(), disconnectFromHost() 这类
+方法需要设计。
+    若考虑在内部实现上的方便性，以及逆向操作可能带来的一些发给自身的信号堆积 ( Qt::QueuedConnection )，
+可以直接以“ 删除该对像 ” 作为关闭操作。
+    即如下的API：
+    void connectToHost(); 为连接操作，但要关闭，则只需要删除该对象即可。
+
+
+
+    

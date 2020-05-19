@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qmluserlistmodeldemo/main/view">
+        <file alias="main.qml">main.qml</file>
+        <file alias="personitem.qml">personitem.qml</file>
+        <file alias="qmldir">qmldir</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/$D{Key2_ProjNameL}/main/view">
+        <file alias="main.qml">main.qml</file>
+        <file alias="qmldir">qmldir</file>
+    </qresource>
+</RCC>

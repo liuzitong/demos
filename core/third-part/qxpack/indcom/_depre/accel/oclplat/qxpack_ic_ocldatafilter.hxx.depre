@@ -1,0 +1,31 @@
+#ifndef QXPACK_IC_OCLDATAFILTER_HXX
+#define QXPACK_IC_OCLDATAFILTER_HXX
+
+#include <qxpack/indcom/common/qxpack_ic_def.h>
+#include <qxpack/indcom/common/qxpack_ic_bytearray.hxx>
+
+namespace QxPack {
+
+// ///////////////////////////////////////////////
+//
+// OpenCL data filter interface
+//
+// ///////////////////////////////////////////////
+class QXPACK_IC_API  IcOclDataFilter {
+
+public:
+    virtual ~IcOclDataFilter( );
+    virtual bool  run( IcByteArray &err_info ) = 0;
+protected:
+    IcOclDataFilter ( const IcOclDataFilter & );
+    IcOclDataFilter &  operator = ( const IcOclDataFilter & );
+    IcOclDataFilter ( );
+private:
+
+};
+
+
+
+}
+
+#endif

@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\appctrl\core_appctrl.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\base\service\core_appsettingssvc.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\base\service\core_cfmbussvc.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\appctrl\core_entry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\base\common\core_logging.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_main.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\base\common\core_memcntr.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\base\service\core_msgbussvc.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\base\service\core_objmgrsvc.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_appctrlbase.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_appsettingsbase.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_base64.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_bytearray.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_confirmbus.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_buff.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_cli.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rshde_impl_bundle.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rshdebase.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rssvr_impl_bundle.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rssvrbase.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_svr.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_eventloopbarrier.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_filemon.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_global.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_imagedata.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_ipcsem_win32.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_jotaskworker.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_jsonrpc2.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_buff.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_cli.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_resphde.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_svr.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_logging.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_memcntr.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_minizip.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_modmgrbase.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_msgbus.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_ncstring.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_objectcache.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_objmgr.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjcreator_priv.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjdeletor_priv.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjsigblocker_priv.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_semaphore.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_sharedthreadpool_priv.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_simplefsm.cxx">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_stdioipc.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_svcbase.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_sysevtqthread_priv.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_timer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_vardata.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_viewmodelbase.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\appctrl\core_appctrl.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\base\service\core_appsettingssvc.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\base\service\core_cfmbussvc.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\base\common\core_def.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\common\core_logging.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_main.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\base\common\core_memcntr.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\base\service\core_msgbussvc.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\base\service\core_objmgrsvc.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\base\common\core_pimplprivtemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_appctrlbase.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_appdcl_priv.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_appsettingsbase.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_base64.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_bytearray.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_confirmbus.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_buff.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_cli.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rshde_impl_bundle.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rshdebase.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rssvr_impl_bundle.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_rssvrbase.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_datatrans_svr.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_def.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_dequetemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_eventloopbarrier.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_filemon.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_global.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_heapvectortemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_imagedata.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_ipcsem.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_jotaskworker.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_jsonrpc2.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_buff.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_cli.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_resphde.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\net\qxpack_ic_jsonrpc2_svr.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_logging.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_memcntr.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_minizip.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_modmgrbase.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_msgbus.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_ncstring.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_numstatqueuetemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_objectcache.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_objmgr.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_pimplprivtemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_queuetemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjcreator_priv.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjdeletor_priv.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_rmtobjsigblocker_priv.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_semaphore.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_semtemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_simplefsm.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_stacktemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_stdioipc.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_svcbase.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_timer.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\common\qxpack_ic_tripleobjtemp.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\third-part\qxpack\indcom\sys\qxpack_ic_vardata.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\..\third-part\qxpack\indcom\afw\qxpack_ic_viewmodelbase.hxx">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

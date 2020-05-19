@@ -1,0 +1,12 @@
+{
+    "fileSuffixArray" : [
+        "h", "hxx", "hpp", 
+        "c", "cpp", "cxx",
+        "pri", "pro", "qrc",
+        "qml"
+    ],
+
+    "fileFullNameArray" : [
+        "qmldir"
+    ]
+}

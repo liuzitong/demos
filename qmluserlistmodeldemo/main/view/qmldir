@@ -1,0 +1,3 @@
+module qmluserlistmodeldemo.main.view
+
+PersonItem  1.0   personitem.qml

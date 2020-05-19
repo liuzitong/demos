@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/qmlicquickimageitemdemo/main/view">
+        <file alias="main.qml">main.qml</file>
+        <file alias="qmldir">qmldir</file>
+    </qresource>
+    <qresource prefix="/qmlicquickimageitemdemo/main/view/birdfly4">
+        <file alias="im0.bmp">birdfly4/video_emu_im256_00.bmp</file>
+        <file alias="im1.bmp">birdfly4/video_emu_im256_01.bmp</file>
+        <file alias="im2.bmp">birdfly4/video_emu_im256_02.bmp</file>
+        <file alias="im3.bmp">birdfly4/video_emu_im256_03.bmp</file> 
+    </qresource>
+</RCC>

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qmlcfmbusmulticfmdemo/main/view">
+        <file alias="main.qml">main.qml</file>
+        <file alias="confirmdiag.qml">confirmdiag.qml</file>
+        <file alias="qmldir">qmldir</file>
+    </qresource>
+</RCC>

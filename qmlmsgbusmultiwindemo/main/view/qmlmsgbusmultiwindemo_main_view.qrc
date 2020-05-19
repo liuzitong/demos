@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qmlmsgbusmultiwindemo/main/view">
+        <file alias="main.qml">main.qml</file>
+        <file alias="main2.qml">main2.qml</file>
+        <file alias="qmldir">qmldir</file>
+    </qresource>
+</RCC>

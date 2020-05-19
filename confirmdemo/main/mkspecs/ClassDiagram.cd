@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="confirmDemo::AppCtrl">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\confirmdemo\main\appctrl\confirmdemo_appctrl.hxx</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QxPack::IcAppCtrlBase">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAGAAEAAQAQAAIJEAAgAACAIBBACAAUABAAIAAAAY=</HashCode>
+      <FileName>D:\confirmdemo\third-part\qxpack\indcom\afw\qxpack_ic_appctrlbase.hxx</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QObject">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCgAAAAQQIAAAAVUiQAAEMCGgAMQiIIHBEAiIhJGACU=</HashCode>
+      <FileName>C:\Qt\Qt5.9.7\5.9.7\msvc2015\include\QtCore\qobject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

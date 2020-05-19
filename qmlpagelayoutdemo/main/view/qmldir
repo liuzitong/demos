@@ -1,0 +1,4 @@
+module qmlpagelayoutdemo.main.view
+
+Main  1.0  main.qml
+internal HintText  hinttext.qml

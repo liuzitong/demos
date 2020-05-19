@@ -1,0 +1,37 @@
+#ifndef QXPACK_IC_OCLDATAFILTER_CXX
+#define QXPACK_IC_OCLDATAFILTER_CXX
+
+#include "qxpack_ic_ocldatafilter.hxx"
+
+namespace QxPack {
+
+// /////////////////////////////////////////////////
+//
+// IcOclDataFilter wrap API
+//
+// /////////////////////////////////////////////////
+// =================================================
+// CTOR
+// =================================================
+    IcOclDataFilter :: IcOclDataFilter ( ) { }
+
+// =================================================
+// DTOR
+// =================================================
+    IcOclDataFilter :: ~IcOclDataFilter ( ) { }
+
+// =================================================
+// CTOR ( Copy )
+// =================================================
+    IcOclDataFilter :: IcOclDataFilter ( const IcOclDataFilter & ) { }
+
+// =================================================
+// operator =
+// =================================================
+IcOclDataFilter &  IcOclDataFilter :: operator = ( const IcOclDataFilter & )
+{ return *this; }
+
+
+}
+
+#endif

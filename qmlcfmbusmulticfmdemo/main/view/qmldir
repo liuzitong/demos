@@ -1,0 +1,3 @@
+module qmlcfmbusmulticfmdemo.main.view
+
+internel ConfirmDiag confirmdiag.qml

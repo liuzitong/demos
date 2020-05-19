@@ -1,0 +1,97 @@
+update: 2019/05/18 1158
+
+【 QObject 】
+
+  QObject 就是一个C++的类，内部附带了元信息结构指针
+
+1. 相关宏
+
+  Q_OBJECT     继承 QObject 必须要写的位于私有区的宏，用于元信息存储
+
+  Q_PROPERTY   在元信息中声明的元属性，用户可以通过元信息访问相关函数，
+               用于存取单值
+
+  Q_SIGNAL     QT5 的信号方法
+               可以直接调用，也可以用 emit 方法调用，表现形式像普通函数。
+               公有信号也可以被其他对象直接调用触发。
+
+  Q_SLOT       QT5 的槽函数
+               可以直接调用，也可以被信号触发调用
+
+  Q_INVOKABLE  QT5 元方法
+               由此标记的函数被存储到元信息中，可以通过 QMetaObject::invoke
+               调用
+
+2. 访问元信息
+  
+    一个继承自 QObject 的类，拥有相应的元信息，可以通过下述方法访问它的元信息：
+
+    2-1) 对象的 metaObject() 方法
+         obj->metaObject()
+
+    2-2) 类的静态信息
+         Class::staticMetaObject()
+
+
+3. 信号中的参数声明
+       
+   3-1) 引用传递
+   危险：除了连接方式以 Qt::DirectConnection 以外，其他方式都非常危险
+   QObject::connect( ... )
+
+   Q_SIGNAL void sig ( MyObj & )
+   以此声明的对象将以引用进行传递，非值复制方式
+
+   3-2) 值复制
+   Q_SIGNAL void sig ( MyObj )
+   元信息中的函数签名为  sig(MyObj)
+
+   3-3) 常量值复制
+
+   Q_SIGNAL void sig ( const MyObj & )
+   等同于值复制，元信息中的函数签名为 sig(MyObj)
+
+   
+4. 线程亲和性 （ thread affinity）
+
+   4-1) 线程所属
+       QObject 的成员thread() 可以返回它所属的线程，此对象相关的所有事件，信号处理都是在
+   此线程中调用。
+       改变 QObject 的线程可以使用 moveToThread(), 但非常危险，因为无法确定在此对象成员中
+   有没有间接地创建了继承自QObject的实例，这些实例可能依然运行在原来的线程中。
+
+
+   4-2）访问其他线程的 QObject
+      a) 通过 Q_SIGNAL 
+      本地 QObject 提供信号，让其他线程的 QObject 连接上，本地通过发射信号来将调用事件
+      递送到目标 QObject 中
+
+      b) 通过 QMetaObject::invoke
+      其他线程 QObject 提供 Q_SLOT / Q_INVOKABLE 函数，本地线程中通过 QMetaObject::invoke 进行调用
+
+   
+   4-3) 安排一个本地队列调用
+      a) 通过 QMetaObject::invoke
+      附带 Qt::QueuedConnection 参数，调用将发送至当前线程的事件队列，在执行返回至事件循环后，
+      才会被执行。
+     
+   4-4) deleteLater
+      deleteLater 相当于使用 QMetaObject::invoke ( Qt::QueuedConnection ) 方式计划一个删除调用。
+      使用 deleteLater 的好处在于，它肯定会在没有处理信号时进行删除，避免了意外。坏处在于，对象
+      会被延迟删除，对需要立即产生效果的如设备关闭等有影响。
+
+
+5. moc 
+   元信息编译器，会对所有头文件以及实现文件进行检测，生成需要的元信息。
+
+   5-1) 实现文件中声明需要生成元信息
+   在.cxx/.cpp 中，如果写了内置的继承自 QObject 的类，需要在文件末尾使用
+  
+   #include "xxx.moc" ( xxx 即是该文件名 )，来强制moc 编译器生成元信息
+   
+6. Qt::QueuedConnection / Qt::BlockingQueuedConnection / Qt::DirectlyConnection
+   
+   6-1) qintptr/quintptr 不可在 Qt::QueuedConnect 中直接作为参数，
+   但可以在 Qt::DirectlyConnection / Qt::BlockingQueuedConnection 中使用
+
+
