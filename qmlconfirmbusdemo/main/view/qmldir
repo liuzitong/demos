@@ -1,0 +1,3 @@
+module qmlconfirmbusdemo.main.view
+
+internel ConfirmDiag confirmdiag.qml

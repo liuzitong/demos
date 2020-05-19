@@ -1,3 +1,0 @@
-module confirmdemo.main.view
-
-internel ConfirmDiag confirmdiag.qml
