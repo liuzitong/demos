@@ -162,7 +162,7 @@ public:
     IcConfirmBus ( QObject *pa = Q_NULLPTR );
 
     //! dtor
-    virtual ~IcConfirmBus ( ) Q_DECL_OVERRIDE;
+    ~IcConfirmBus ( ) Q_DECL_OVERRIDE;
 
     /*!
      * @brief add listener about a group name

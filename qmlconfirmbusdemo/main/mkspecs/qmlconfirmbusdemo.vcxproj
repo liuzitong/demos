@@ -478,6 +478,7 @@
     <None Include="..\view\main.qml" />
     <None Include="..\..\third-part\qxpack\indcom\ui_qml_control\modalpopupdialog.qml" />
     <None Include="..\..\third-part\qxpack\indcom\ui_qml_control\pagebase.qml" />
+    <None Include="ClassDiagram.cd" />
     <QtRcc Include="..\view\qmlconfirmbusdemo_main_view.qrc">
       <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qmlconfirmbusdemo_main_view</InitFuncName>
       <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">qmlconfirmbusdemo_main_view</InitFuncName>

@@ -23,11 +23,11 @@ public:
     //! dtor
     virtual ~MmMainVm( ) Q_DECL_OVERRIDE;
 
-    Q_INVOKABLE void  doDemo0( );
+    Q_INVOKABLE void  doDemo0( ) const;
 
     //! notice view , a confirm package arrived.
     //! [HINT] the view must be directly connect to this signal
-    Q_SIGNAL void  demo0_reqConfirm( QObject* cfm_pkg );
+    Q_SIGNAL void  demo0_reqConfirm( QObject* );
 
 private:
     friend class MmMainVmPriv; // [HINT] use this to make private object visite signal and slot

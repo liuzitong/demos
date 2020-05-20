@@ -169,9 +169,9 @@ void   IcAppCtrlBase :: doInit( )
         }
 
         this->preInit();
-        T_PrivPtr( m_obj )->setAppSet( this->createSingleton_AppSettings() );
-        T_PrivPtr( m_obj )->setMsgBus( this->createSingleton_MsgBus() );
-        T_PrivPtr( m_obj )->setObjMgr( this->createSingleton_ObjMgr() );
+        T_PrivPtr( m_obj )->setAppSet( this->getSingleton_AppSettings() );
+        T_PrivPtr( m_obj )->setMsgBus( this->getSingleton_MsgBus() );
+        T_PrivPtr( m_obj )->setObjMgr( this->getSingleton_ObjMgr() );
         T_PrivPtr( m_obj )->setCfmBus( this->createSingleton_CfmBus() );
         T_PrivPtr( m_obj )->ensureCompt( ); // create compt if some compt not created
         this->registerTypes_ObjMgr( );
@@ -235,18 +235,18 @@ QString   IcAppCtrlBase :: instanceName() const
 // ============================================================================
 // default implement of the init/deinit seq.
 // ============================================================================
-void      IcAppCtrlBase :: preInit()  { return; }
-IcAppSettingsBase* IcAppCtrlBase :: createSingleton_AppSettings() { return Q_NULLPTR; }
-IcMsgBus* IcAppCtrlBase :: createSingleton_MsgBus() { return Q_NULLPTR; }
-IcObjMgr* IcAppCtrlBase :: createSingleton_ObjMgr() { return Q_NULLPTR; }
-void      IcAppCtrlBase :: registerTypes_ObjMgr  () { }
-void      IcAppCtrlBase :: postInit() { }
-
-void      IcAppCtrlBase :: preDeinit()  { }
-void      IcAppCtrlBase :: releaseSingleton_ObjMgr() {  }
-void      IcAppCtrlBase :: releaseSingleton_MsgBus() {  }
-void      IcAppCtrlBase :: releaseSingleton_AppSettings() { }
-void      IcAppCtrlBase :: postDeinit() { }
+//void      IcAppCtrlBase :: preInit()  { return; }
+//IcAppSettingsBase* IcAppCtrlBase :: createSingleton_AppSettings() { return Q_NULLPTR; }
+//IcMsgBus* IcAppCtrlBase :: createSingleton_MsgBus() { return Q_NULLPTR; }
+//IcObjMgr* IcAppCtrlBase :: createSingleton_ObjMgr() { return Q_NULLPTR; }
+//void      IcAppCtrlBase :: registerTypes_ObjMgr  () { }
+//void      IcAppCtrlBase :: postInit() { }
+//
+//void      IcAppCtrlBase :: preDeinit()  { }
+//void      IcAppCtrlBase :: releaseSingleton_ObjMgr() {  }
+//void      IcAppCtrlBase :: releaseSingleton_MsgBus() {  }
+//void      IcAppCtrlBase :: releaseSingleton_AppSettings() { }
+//void      IcAppCtrlBase :: postDeinit() { }
 
 // nw: 2019/04/30 added
 IcConfirmBus*  IcAppCtrlBase :: createSingleton_CfmBus() { return Q_NULLPTR; }

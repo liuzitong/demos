@@ -35,9 +35,9 @@ protected:
 
     // override the the initialization process
     virtual void      preInit( ) Q_DECL_OVERRIDE;
-    virtual QxPack::IcAppSettingsBase* createSingleton_AppSettings( ) Q_DECL_OVERRIDE;
-    virtual QxPack::IcMsgBus*  createSingleton_MsgBus( ) Q_DECL_OVERRIDE;
-    virtual QxPack::IcObjMgr*  createSingleton_ObjMgr( ) Q_DECL_OVERRIDE;
+    virtual QxPack::IcAppSettingsBase* getSingleton_AppSettings( ) Q_DECL_OVERRIDE;
+    virtual QxPack::IcMsgBus*  getSingleton_MsgBus( ) Q_DECL_OVERRIDE;
+    virtual QxPack::IcObjMgr*  getSingleton_ObjMgr( ) Q_DECL_OVERRIDE;
     virtual void      registerTypes_ObjMgr( ) Q_DECL_OVERRIDE;
     virtual void      postInit( ) Q_DECL_OVERRIDE;
 

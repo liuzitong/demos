@@ -13,87 +13,70 @@
 
 namespace qmlconfirmbusdemo {
 
-// ////////////////////////////////////////////////////////////////////////////
-// private object
-// ////////////////////////////////////////////////////////////////////////////
+    // ////////////////////////////////////////////////////////////////////////////
+    // private object
+    // ////////////////////////////////////////////////////////////////////////////
 #define T_PrivPtr( o )  qmlconfirmbusdemo_objcast( MmMainVmPriv*, o )
-class QMLCONFIRMBUSDEMO_HIDDEN  MmMainVmPriv : public QObject {
-    Q_OBJECT
-private:
-    MmMainVm *m_parent;
-    MmConfirmSvc  m_cfm_svc;
-protected:
-    // [HINT] the confirm bus spec. named SLOT.
-    Q_SLOT void  IcConfirmBus_onReqConfirm ( QxPack::IcConfirmBusPkg & );
-public :
-    explicit MmMainVmPriv( MmMainVm *pa );
-    virtual ~MmMainVmPriv( ) Q_DECL_OVERRIDE;
-    inline void doDemo0() { m_cfm_svc.doDemo0(); }
-};
+    class QMLCONFIRMBUSDEMO_HIDDEN  MmMainVmPriv : public QObject {
+        Q_OBJECT
+    private:
+        MmMainVm* m_parent;
+        MmConfirmSvc  m_cfm_svc;
+    protected:
+        // [HINT] the confirm bus spec. named SLOT.
+        // key_func message flow send pkg to ui .after emit signal main thread blocked.
+        // until finished slot in qml,main thread continues next line.
 
-// ============================================================================
-//  ctor
-// ============================================================================
-MmMainVmPriv :: MmMainVmPriv ( MmMainVm *pa ) : m_cfm_svc( QVariantList())
-{
-    m_parent = pa;
+        Q_SLOT void  IcConfirmBus_onReqConfirm(QxPack::IcConfirmBusPkg& pkg)
+        {
+            QxPack::IcConfirmBusPkgQObj  cfm_pkg_obj;
+            cfm_pkg_obj.setContent(pkg);
+            if (pkg.groupName() == m_cfm_svc.confirmGroupNameDemo0()) {
+                emit m_parent->demo0_reqConfirm(&cfm_pkg_obj);
+            }
+        }
+    public:
+        explicit MmMainVmPriv(MmMainVm* pa) : m_cfm_svc(QVariantList())
+        {
+            m_parent = pa;
 
-    QxPack::IcAppCtrlBase *app_ctrl = QxPack::IcAppCtrlBase::instance( GUNS_AppCtrl );
-    QxPack::IcConfirmBus *cfm_bus = app_ctrl->cfmBus();
+            QxPack::IcAppCtrlBase* app_ctrl = QxPack::IcAppCtrlBase::instance(GUNS_AppCtrl);
+            QxPack::IcConfirmBus* cfm_bus = app_ctrl->cfmBus();
 
-    // [HINT] here we listen the confirm group
-    cfm_bus->add( this, m_cfm_svc.confirmGroupNameDemo0() );
-}
+            // [HINT] here we listen the confirm group
+            cfm_bus->add(this, m_cfm_svc.confirmGroupNameDemo0());
+        }
+        ~MmMainVmPriv() Q_DECL_OVERRIDE
+        {
+            QxPack::IcAppCtrlBase* app_ctrl = QxPack::IcAppCtrlBase::instance(GUNS_AppCtrl);
+            QxPack::IcConfirmBus* cfm_bus = app_ctrl->cfmBus();
 
-// ============================================================================
-//  dtor
-// ============================================================================
-MmMainVmPriv :: ~MmMainVmPriv ( )
-{
-    QxPack::IcAppCtrlBase *app_ctrl = QxPack::IcAppCtrlBase::instance( GUNS_AppCtrl );
-    QxPack::IcConfirmBus  *cfm_bus = app_ctrl->cfmBus();
+            // [HINT] remember to remove from confirm-bus
+            cfm_bus->rmv(this, m_cfm_svc.confirmGroupNameDemo0());
+        }
+        void doDemo0() { m_cfm_svc.doDemo0(); }
+    };
 
-    // [HINT] remember to remove from confirm-bus
-    cfm_bus->rmv( this, m_cfm_svc.confirmGroupNameDemo0() );
-}
-
-// ============================================================================
-// slot: handle the confirm group
-// ============================================================================
-void  MmMainVmPriv :: IcConfirmBus_onReqConfirm( QxPack::IcConfirmBusPkg &pkg )
-{
-    QxPack::IcConfirmBusPkgQObj  cfm_pkg_obj;
-    cfm_pkg_obj.setContent( pkg );
-    if ( pkg.groupName() == m_cfm_svc.confirmGroupNameDemo0()) {
-        emit m_parent->demo0_reqConfirm( &cfm_pkg_obj );
+    // ////////////////////////////////////////////////////////////////////////////
+    // wrap API
+    // ////////////////////////////////////////////////////////////////////////////
+    MmMainVm::MmMainVm(const QVariantList&)
+    {
+        m_obj = qmlconfirmbusdemo_new(MmMainVmPriv, this);
     }
-}
 
+    MmMainVm :: ~MmMainVm()
+    {
+        qmlconfirmbusdemo_delete(m_obj, MmMainVmPriv);
+    }
 
-// ////////////////////////////////////////////////////////////////////////////
-// wrap API
-// ////////////////////////////////////////////////////////////////////////////
-// ============================================================================
-// ctor
-// ============================================================================
-MmMainVm :: MmMainVm ( const QVariantList & )
-{
-    m_obj = qmlconfirmbusdemo_new( MmMainVmPriv, this );
-}
-
-// ============================================================================
-// dtor
-// ============================================================================
-MmMainVm :: ~MmMainVm ( )
-{
-    qmlconfirmbusdemo_delete( m_obj, MmMainVmPriv );
-}
-
-// ============================================================================
-// do the demo0
-// ============================================================================
-void   MmMainVm :: doDemo0()
-{ T_PrivPtr( m_obj )->doDemo0(); }
+    // ============================================================================
+    // do the demo0 key_func
+    // ============================================================================
+    void   MmMainVm::doDemo0() const
+    {
+        T_PrivPtr(m_obj)->doDemo0();
+    }
 
 
 }

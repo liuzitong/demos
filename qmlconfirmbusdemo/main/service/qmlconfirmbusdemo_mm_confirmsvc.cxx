@@ -27,7 +27,7 @@ private:
     QxPack::IcConfirmBus *m_cfm_bus;
 public :
     explicit MmConfirmSvcPriv( );
-    virtual ~MmConfirmSvcPriv( ) Q_DECL_OVERRIDE;
+    ~MmConfirmSvcPriv( ) Q_DECL_OVERRIDE;
     void  doDemo0( );
 };
 
@@ -43,10 +43,7 @@ MmConfirmSvcPriv :: MmConfirmSvcPriv ( )
 // ============================================================================
 // dtor
 // ============================================================================
-MmConfirmSvcPriv :: ~MmConfirmSvcPriv( )
-{
-
-}
+MmConfirmSvcPriv :: ~MmConfirmSvcPriv( ) = default;
 
 // ============================================================================
 // do the demo0
@@ -64,7 +61,7 @@ void  MmConfirmSvcPriv :: doDemo0()
     // b) set package to confirm bus, and wait it return ( this will be blocking )
     m_cfm_bus->reqConfirm( cfm_pkg );
 
-    // c) get result do bussiness
+    // c)after execute qml get result do bussiness
     if ( cfm_pkg.isGotResult()) {
         QJsonObject jo_rsl = cfm_pkg.result();
         if ( jo_rsl.value("result").toString().toLower() == QStringLiteral("yes")) {

@@ -61,12 +61,12 @@ protected:
     // registerTypes_ObjMgr()   -- register global object types in object manager
     // postInit() -- finish initalize
     // ========================================================================
-    virtual void       preInit( );
-    virtual IcAppSettingsBase *  createSingleton_AppSettings( );
-    virtual IcMsgBus*  createSingleton_MsgBus( );
-    virtual IcObjMgr*  createSingleton_ObjMgr( );
-    virtual void       registerTypes_ObjMgr  ( );
-    virtual void       postInit( );
+    virtual void       preInit( )=0;
+    virtual IcAppSettingsBase *  getSingleton_AppSettings( )=0;
+    virtual IcMsgBus*  getSingleton_MsgBus( )=0;
+    virtual IcObjMgr*  getSingleton_ObjMgr( )=0;
+    virtual void       registerTypes_ObjMgr  ( )=0;
+    virtual void       postInit( )=0;
 
     // ========================================================================
     // deinitalize call order:
@@ -76,11 +76,11 @@ protected:
     // releaseSingleton_AppSettings( ) -- release applicatino settings
     // postDeinit( ) -- finish deinitalize
     // ========================================================================
-    virtual void  preDeinit( );
-    virtual void  releaseSingleton_ObjMgr( );
-    virtual void  releaseSingleton_MsgBus( );
-    virtual void  releaseSingleton_AppSettings( );
-    virtual void  postDeinit( );
+    virtual void  preDeinit( )=0;
+    virtual void  releaseSingleton_ObjMgr( )=0;
+    virtual void  releaseSingleton_MsgBus( )=0;
+    virtual void  releaseSingleton_AppSettings( )=0;
+    virtual void  postDeinit( )=0;
 
     // ========================================================================
     // nw: 2019/04/30 added:

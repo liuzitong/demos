@@ -484,5 +484,6 @@
     <QtRcc Include="..\..\third-part\qxpack\indcom\ui_qml_control\qxpack_ic_ui_qml_control.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

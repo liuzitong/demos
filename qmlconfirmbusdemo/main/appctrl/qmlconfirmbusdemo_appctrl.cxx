@@ -117,7 +117,7 @@ void    AppCtrl :: preInit( )
 // ============================================================================
 // create a global singleton message bus object
 // ============================================================================
-QxPack::IcMsgBus*  AppCtrl :: createSingleton_MsgBus( )
+QxPack::IcMsgBus*  AppCtrl :: getSingleton_MsgBus( )
 {
     return T_PrivPtr( m_obj )->msgBusSvc();
 }
@@ -125,7 +125,7 @@ QxPack::IcMsgBus*  AppCtrl :: createSingleton_MsgBus( )
 // ============================================================================
 // create the object manager
 // ============================================================================
-QxPack::IcObjMgr*   AppCtrl :: createSingleton_ObjMgr( )
+QxPack::IcObjMgr*   AppCtrl :: getSingleton_ObjMgr( )
 {
     return T_PrivPtr( m_obj )->objMgrSvc();
 }
@@ -133,7 +133,7 @@ QxPack::IcObjMgr*   AppCtrl :: createSingleton_ObjMgr( )
 // ============================================================================
 // create the appsettings manager
 // ============================================================================
-QxPack::IcAppSettingsBase*  AppCtrl :: createSingleton_AppSettings( )
+QxPack::IcAppSettingsBase*  AppCtrl :: getSingleton_AppSettings( )
 {
     return T_PrivPtr( m_obj )->appSetSvc();
 }

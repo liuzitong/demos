@@ -115,7 +115,7 @@ private:
 
 
 #define qmlconfirmbusdemo_delete_qobj( o ) \
-    do{ qmlconfirmbusdemo::MemCntr::memCntOnDelObj( qobject_cast<QObject*>(o), false ); } while(0)
+    do{ qmlconfirmbusdemo::MemCntr::memCntOnDelObj( qobject_cast<QObject*>(o), false ); } while(0) //do{}while(0) °ü¹ü·ÀÖ¹ÆçÒå
 
 #define qmlconfirmbusdemo_delete_qobj_later( o ) \
     do{ qmlconfirmbusdemo::MemCntr::memCntOnDelObj( qobject_cast<QObject*>(o), true ); } while(0)

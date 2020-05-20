@@ -313,7 +313,7 @@ IcMsgBus :: IcMsgBus ( QObject *pa ) : QObject( pa )
 // ============================================================================
 IcMsgBus :: ~IcMsgBus ( )
 {
-    IcMsgBusWorkerCreator::deleteCreator( T_Creator( m_obj ));
+    IcMsgBusWorkerCreator::deleteCreator(  m_obj );
     m_obj = Q_NULLPTR;
 }
 

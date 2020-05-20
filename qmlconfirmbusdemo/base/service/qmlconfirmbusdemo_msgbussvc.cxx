@@ -38,10 +38,8 @@ static QAtomicInt   g_ref_cntr(0);
 // ============================================================================
 MsgBusSvc *  MsgBusSvc::getInstance( )
 {
-    MsgBusSvc *ptr = Q_NULLPTR;
-
     g_locker.lock();
-    ptr = g_ptr.loadAcquire();
+    MsgBusSvc* ptr = g_ptr.loadAcquire();
     if ( ptr == Q_NULLPTR ) {
         g_ptr.store( ( ptr = new MsgBusSvc( Q_NULLPTR ) ));
         g_ref_cntr.store(1);

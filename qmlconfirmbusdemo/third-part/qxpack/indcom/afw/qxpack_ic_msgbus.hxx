@@ -92,6 +92,7 @@ private:
  * @note  the message bus used QT5 signal & slot inner.
  */
 // ////////////////////////////////////////////////////////////////////////////
+class IcMsgBusWorkerCreator;
 class QXPACK_IC_API  IcMsgBus : public QObject {
     Q_OBJECT
 public:
@@ -138,12 +139,12 @@ public:
     );
 
 private:
-    void *m_obj;
+    IcMsgBusWorkerCreator *m_obj;
     Q_DISABLE_COPY( IcMsgBus )
 };
 
 }
-
+//register to variant
 Q_DECLARE_METATYPE( QxPack::IcMsgBusPkg )
 
 #endif
